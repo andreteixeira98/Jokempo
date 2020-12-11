@@ -12,5 +12,12 @@ public class JogadorController {
  public void UpdateDerrotasJogador(Jogador jogador) {
 	 jogador.setQtdDerrotas(jogador.getQtdDerrotas() + 1);
  }
+ public String tipoDePalpite(int palpite) {
+		if(palpite == 0) return "pedra";
+		
+		else if(palpite == 1) return "papel";
+		
+		else return "tesoura";
+	}
  
 }

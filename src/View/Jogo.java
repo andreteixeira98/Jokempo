@@ -3,23 +3,19 @@ package View;
 import java.util.Scanner;
 
 import Controller.ComputadorController;
-import Controller.PartidaController;
 import Controller.JogadorController;
-import Controller.JogoController;
-import Controller.PalpiteController;
+import Controller.PartidaController;
 import Controller.PlacarController;
 import Model.Jogador;
 
 public class Jogo {
-	public static Jogador Computador;
-	public static Jogador Humano;
-	public static JogoController controladorDeJogo = new JogoController();
-	public static PlacarController controladorDePlacar = new PlacarController();
-	public static JogadorController controladorDeJogador = new JogadorController();
-	public static ComputadorController controladorDeComputador = new ComputadorController();
-	public static PartidaController controladorDePartida = new  PartidaController();
-	public static PalpiteController controladorDePalpite = new PalpiteController();
-	public static Scanner entrada = new Scanner(System.in);
+	private static Jogador Computador;
+	private static Jogador Humano;
+	private static PlacarController controladorDePlacar = new PlacarController();
+	private static JogadorController controladorDeJogador = new JogadorController();
+	private static ComputadorController controladorDeComputador = new ComputadorController();
+	private static PartidaController controladorDePartida = new  PartidaController();
+	private static Scanner entrada = new Scanner(System.in);
 	
 	public void GUI() {
 		Humano = new Jogador();
@@ -27,14 +23,14 @@ public class Jogo {
 		while(true) {
 			
 			
-			System.out.println("Iniciando Jogo...");
-			System.out.println(controladorDePlacar.Placar(Humano, Computador));
+			System.out.println("Iniciando Jogo...");//TODO
+			System.out.println(controladorDePlacar.Placar(Humano.getQtdVitorias(), Computador.getQtdVitorias()));
 			System.out.println("Humano digite [0]Pedra/ [1]Papel/ [2]Tesoura:");
 			controladorDeJogador.UpdatePalpiteJogador(Humano,entrada.nextInt() );
 			entrada.nextLine();
 			controladorDeJogador.UpdatePalpiteJogador(Computador, controladorDeComputador.jogadaDoComputador());
 			
-			System.out.println("Humano: "+controladorDePalpite.tipoDePalpite(Humano.getPalpite())+" VS " + controladorDePalpite.tipoDePalpite(Computador.getPalpite()) +": Computador");
+			System.out.println("Humano: "+controladorDeJogador.tipoDePalpite(Humano.getPalpite())+" VS " + controladorDeJogador.tipoDePalpite(Computador.getPalpite()) +": Computador");
 			
 			int vencedor = controladorDePartida.vencedor(Humano.getPalpite(), Computador.getPalpite());
 			
@@ -56,12 +52,12 @@ public class Jogo {
 				break;
 			}
 			
-			System.out.println(controladorDePlacar.Placar(Humano, Computador));
+			System.out.println(controladorDePlacar.Placar(Humano.getQtdVitorias(), Computador.getQtdVitorias()));
 			System.out.println("Deseja Jogar novamente? [Y/N]:");
 			String jogarNovamente = entrada.nextLine();
 			
 			if(!jogarNovamente.equalsIgnoreCase("Y")) {
-				break;
+				System.exit(0);
 			}
 		}
 	}
