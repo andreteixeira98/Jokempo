@@ -7,6 +7,7 @@ public class Jokempo {
 		// TODO Auto-generated method stub
 		InterfaceGrafica = new Jogo();
 		InterfaceGrafica.GUI();
+		//iokdsafkjdosfgpdsfgdkrsa
 
 	}
 	

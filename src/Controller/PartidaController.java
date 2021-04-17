@@ -1,7 +1,7 @@
 package Controller;
 
 public class PartidaController {
-
+//dsaflksak
 	
 	public int vencedor(int palpiteJog1, int palpiteJog2) {
 		

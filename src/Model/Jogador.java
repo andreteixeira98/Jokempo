@@ -1,7 +1,7 @@
 package Model;
 
 public class Jogador {
-	
+	//dsilsdds
 	public Jogador(int palpite, int qtdVitorias, int qtdDerrotas) {
 		super();
 		this.palpite = palpite;
